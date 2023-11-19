@@ -2,14 +2,12 @@
 
 Welcome to the Python Starters Installation Guide! In this tutorial, we'll walk you through the steps to get Python Starters up and running on your machine. Python Starters is designed to make your project initialization and management as seamless as possible. Let's get started with the installation process!
 
-
 ## 📋 Prerequisites
 
 Before we begin, ensure you have the following prerequisites installed:
 
 - Python 3.11 or higher: Python Starters is built to work with Python 3.11 and above. You can download the latest version of Python from [python.org](https://www.python.org/downloads/).
 - Git: Since Python Starters relies heavily on Git for version control, make sure Git is installed on your system. You can download Git from [git-scm.com](https://git-scm.com/downloads).
-
 
 ## 📦 Installing Python Starters
 
@@ -28,8 +26,8 @@ To ensure that Python Starters has been installed correctly, you can run the fol
 ```bash
 python-starters --version
 ```
-This command should display the version number of Python Starters, indicating that it is successfully installed on your system.
 
+This command should display the version number of Python Starters, indicating that it is successfully installed on your system.
 
 ## 🔄 Updating Python Starters
 

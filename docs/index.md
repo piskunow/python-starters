@@ -1,4 +1,4 @@
-```{include} ../README.md
+````{include} ../README.md
 ---
 end-before: <!-- github-only -->
 ---
@@ -26,3 +26,4 @@ contributing
 Code of Conduct <codeofconduct>
 License <license>
 Changelog <https://github.com/piskunow/python-starters/releases>
+````

@@ -5,6 +5,7 @@ Welcome to the Quick Start guide for Python Starters! This tutorial will guide y
 ## Prerequisites
 
 Before you begin, ensure you have:
+
 - Python 3.6 or higher installed.
 - Git installed on your system.
 - Python Starters installed. (Refer to the installation guide if you haven't installed it yet.)

@@ -21,27 +21,23 @@
 [pre-commit]: https://github.com/pre-commit/pre-commit
 [black]: https://github.com/psf/black
 
-🚀 Python Starters Documentation
-=============================
+# 🚀 Python Starters Documentation
 
 Welcome to the Python Starters documentation! Python Starters is a tool designed to streamline the process of initializing, managing, and updating project starters based on cookiecutter templates. This tool simplifies Git operations, specifically working with subtrees and submodules, and provides a user-friendly interface for project scaffolding.
 
-📦 Installation
-------------
+## 📦 Installation
 
 To install Python Starters via [pip] from [PyPI], run the following command:
 
 ```bash
 pip install python-starters
 ```
-This will install _Python Starters_
 
+This will install _Python Starters_
 
 Ensure you have Git installed on your system, as Python Starters relies on Git for version control of starters.
 
-
-🛠️ Quick Start
------------
+## 🛠️ Quick Start
 
 To quickly start using Python Starters, follow these steps:
 
@@ -59,9 +55,7 @@ python-starters add <starter_git_url>
 
 3. Customize your starter as needed and enjoy streamlined project setup!
 
-
-🌟 Basic Usage
------------
+## 🌟 Basic Usage
 
 Python Starters simplifies the process of working with project starters. Below are the basic commands:
 
@@ -76,20 +70,20 @@ python-starters init
 ```bash
 python-starters add <starter_git_url>
 ```
+
 - **Updating a Starter**:
 
 ```bash
 python-starters update <starter_name>
 ```
+
 - **Removing a Starter**:
 
 ```bash
 python-starters remove <starter_name>
 ```
 
-
-⚙️ Advanced Usage
---------------
+## ⚙️ Advanced Usage
 
 For advanced usage of Python Starters, consider the following commands:
 
@@ -111,9 +105,7 @@ python-starters list
 
 Please see the [Command-line Reference] for details.
 
-
-📘 API Reference
--------------
+## 📘 API Reference
 
 Python Starters also provides an API for programmatic access to its functionalities. Below is the reference for the API:
 
