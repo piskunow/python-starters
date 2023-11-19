@@ -1,0 +1,16 @@
+{
+  "_checkout": "2022.6.3",
+  "_output_dir": "/home/pablo/work",
+  "_repo_dir": "/home/pablo/.cookiecutters/cookiecutter-hypermodern-python",
+  "_template": "gh:cjolowicz/cookiecutter-hypermodern-python",
+  "author": "Pablo Piskunow",
+  "copyright_year": "2023",
+  "development_status": "Development Status :: 1 - Planning",
+  "email": "starters@piskunow.com",
+  "friendly_name": "Python Starters",
+  "github_user": "piskunow",
+  "license": "MIT",
+  "package_name": "python_starters",
+  "project_name": "python-starters",
+  "version": "0.0.0"
+}
