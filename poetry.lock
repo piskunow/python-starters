@@ -1577,4 +1577,4 @@ tests = ["cmake", "codecov", "ninja", "pybind11", "pytest", "pytest", "pytest", 
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "6adc38353eccaa15bf0c6c5958928d20ffe8bf7a3963a7437c04a5d6d8533038"
+content-hash = "239824cdb66d2c82700d959c4d733e2de0454780694d613223d5ea75468fa9d3"
