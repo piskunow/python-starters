@@ -18,6 +18,12 @@ Changelog = "https://github.com/piskunow/python-starters/releases"
 [tool.poetry.dependencies]
 python = "^3.11"
 click = ">=8.0.1"
+urllib3 = ">=1.26.18"
+tornado = ">=6.3.3"
+safety = ">=2.2.0"
+certifi = ">=2022.12.07"
+markdown-it-py = ">=2.2.0"
+pygments = ">=2.15"
 
 [tool.poetry.dev-dependencies]
 Pygments = ">=2.10.0"
