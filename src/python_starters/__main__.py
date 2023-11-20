@@ -1,12 +1,52 @@
 """Command-line interface."""
-import click
+import typer
+from starters_cli import (
+    init_starter,
+    add_starter,
+    update_starter,
+    remove_starter,
+    list_starters,
+    resolve_conflicts
+)
 
+app = typer.Typer()
 
-@click.command()
-@click.version_option()
-def main() -> None:
-    """Python Starters."""
+@app.command()
+def init():
+    """Initialize Python Starters in the current project."""
+    init_starter()
 
+@app.command()
+def add(starter_git_url: str):
+    """Add a new starter to the project."""
+    add_starter(starter_git_url)
+
+@app.command()
+def update(starter_name: str):
+    """Update the specified starter."""
+    update_starter(starter_name)
+
+@app.command()
+def remove(starter_name: str):
+    """Remove the specified starter."""
+    remove_starter(starter_name)
+
+@app.command()
+def list():
+    """List all starters in the project."""
+    list_starters()
+
+@app.command()
+def resolve(starter_name: str):
+    """Resolve merge conflicts for the specified starter."""
+    resolve_conflicts(starter_name)
+
+@app.callback()
+def main(ctx: typer.Context):
+    """
+    Python Starters - A tool to manage and update project starters.
+    """
+    ctx.ensure_object(dict)
 
 if __name__ == "__main__":
-    main(prog_name="python-starters")  # pragma: no cover
+    app()
