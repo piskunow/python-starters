@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "python-starters"
-version = "0.0.0"
+version = "0.0.1"
 description = "Python Starters"
 authors = ["Pablo Piskunow <starters@piskunow.com>"]
 license = "MIT"
