@@ -47,7 +47,7 @@ If you encounter any issues during the installation, consider the following tips
 - **Update pip**: Sometimes updating `pip` can resolve installation issues. You can update `pip` using `pip install --upgrade pip`.
 - **Check PATH Variable**: Ensure that Python and Git are correctly added to your system's PATH environment variable.
 
-For more detailed troubleshooting, visit the [official Python Starters documentation](#).
+For more detailed troubleshooting, visit the [official Python Starters documentation](https://python-starters.readthedocs.io).
 
 ## 🎉 Next Steps
 

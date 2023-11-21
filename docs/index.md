@@ -1,7 +1,8 @@
-````{include} ../README.md
+```{include} ../README.md
 ---
 end-before: <!-- github-only -->
 ---
+```
 
 [license]: license
 [contributor guide]: contributing
@@ -13,17 +14,11 @@ hidden:
 maxdepth: 2
 ---
 
-Tutorials
----------
-tutorial_01_installation
-tutorial_02_quickstart
-tutorial_03_basic_usage
-tutorial_04_advanced_usage
-
+Tutorials <tutorials>
 usage
 reference
 contributing
 Code of Conduct <codeofconduct>
 License <license>
 Changelog <https://github.com/piskunow/python-starters/releases>
-````
+```
