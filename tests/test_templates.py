@@ -1,7 +1,9 @@
 """Test convert templates."""
+import json
 from unittest.mock import mock_open
 from unittest.mock import patch
 
+from python_starters.convert_templates import track_starter_metadata
 from python_starters.starters_api import initialize_starter
 from python_starters.starters_api import save_starter_config
 
@@ -32,3 +34,27 @@ def test_initialize_starter_calls_cookiecutter():
         initialize_starter(template_url)
 
         mock_cookiecutter.assert_called_once_with(template_url, no_input=False)
+
+
+def test_track_starter_metadata():
+    """Test tracking starter metadata."""
+    starter_path = "/path/to/starter"
+    template_url = "https://example.com/cookiecutter-repo.git"
+    commit_hash = "abcdef1234567890"
+    branch = "main"
+
+    expected_content = json.dumps(
+        {"template_url": template_url, "commit_hash": commit_hash, "branch": branch},
+        indent=4,
+    )
+
+    with patch("builtins.open", mock_open()) as mock_file:
+        track_starter_metadata(starter_path, template_url, commit_hash, branch)
+
+        mock_file.assert_called_once_with(f"{starter_path}/.startersrc", "w")
+
+        # Check the content written to the file
+        written_content = "".join(
+            [call.args[0] for call in mock_file().write.mock_calls]
+        )
+        assert written_content == expected_content
