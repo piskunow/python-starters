@@ -2,31 +2,25 @@
 """High level API."""
 
 
-def initialize_project():
+def initialize_project() -> None:
     """Backend logic to initialize the project."""
-    pass
 
 
-def add_new_starter(url: str):
+def add_new_starter(url: str) -> None:
     """Backend logic to add a new starter."""
-    pass
 
 
-def update_existing_starter(name: str):
+def update_existing_starter(name: str) -> None:
     """Backend logic to update an existing starter."""
-    pass
 
 
-def remove_starter(name: str):
+def remove_starter(name: str) -> None:
     """Backend logic to remove a starter."""
-    pass
 
 
-def list_all_starters():
+def list_all_starters() -> None:
     """Backend logic to list all starters."""
-    pass
 
 
-def resolve_starter_conflicts(name: str):
+def resolve_starter_conflicts(name: str) -> None:
     """Backend logic to resolve starter conflicts."""
-    pass
