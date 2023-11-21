@@ -61,27 +61,27 @@ Python Starters simplifies the process of working with project starters. Below a
 
 - **Initializing Python Starters**:
 
-```bash
-python-starters init
-```
+  ```bash
+  python-starters init
+  ```
 
 - **Adding a Starter**:
 
-```bash
-python-starters add <starter_git_url>
-```
+  ```bash
+  python-starters add <starter_git_url>
+  ```
 
 - **Updating a Starter**:
 
-```bash
-python-starters update <starter_name>
-```
+  ```bash
+  python-starters update <starter_name>
+  ```
 
 - **Removing a Starter**:
 
-```bash
-python-starters remove <starter_name>
-```
+  ```bash
+  python-starters remove <starter_name>
+  ```
 
 ## ⚙️ Advanced Usage
 
@@ -89,15 +89,15 @@ For advanced usage of Python Starters, consider the following commands:
 
 - **Resolving Merge Conflicts**:
 
-```bash
-python-starters resolve <starter_name>
-```
+  ```bash
+  python-starters resolve <starter_name>
+  ```
 
 - **Listing All Starters**:
 
-```bash
-python-starters list
-```
+  ```bash
+  python-starters list
+  ```
 
 - **Customizing Starters**:
 
@@ -109,22 +109,22 @@ Please see the [Command-line Reference] for details.
 
 Python Starters also provides an API for programmatic access to its functionalities. Below is the reference for the API:
 
-- **`init()`**:
+- **`initialize_project()`**:
   Initializes Python Starters in the current project.
 
-- **`add(starter_git_url: str)`**:
+- **`add_new_starter(starter_git_url: str)`**:
   Adds a new starter to the project from the given Git URL.
 
-- **`update(starter_name: str)`**:
+- **`update_existing_starter(starter_name: str)`**:
   Updates the specified starter to its latest version.
 
-- **`remove(starter_name: str)`**:
+- **`remove_starter(starter_name: str)`**:
   Removes the specified starter from the project.
 
-- **`resolve(starter_name: str)`**:
+- **`resolve_starter_conflicts(starter_name: str)`**:
   Assists in resolving merge conflicts for the specified starter.
 
-- **`list_starters()`**:
+- **`list_all_starters()`**:
   Lists all starters added to the current project.
 
 Each function is designed to be intuitive and easy to use, mirroring the simplicity of the CLI commands.
