@@ -1,5 +1,9 @@
 # File: starters_cli.py
 """High level API."""
+import json
+import os
+import subprocess
+
 from cookiecutter.main import cookiecutter
 
 from .convert_templates import save_starter_config
@@ -30,6 +34,24 @@ def add_new_starter(url: str) -> None:
 
 def update_starter(starter_path: str = "") -> None:
     """Backend logic to update an existing starter."""
+    metadata_file = os.path.join(starter_path, ".startersrc")
+    with open(metadata_file) as file:
+        metadata = json.load(file)
+
+    # Updating the starter using git subtree
+    subprocess.run(
+        [
+            "git",
+            "subtree",
+            "pull",
+            "--prefix",
+            starter_path,
+            metadata["template_url"],
+            metadata["branch"],
+            "--squash",
+        ],
+        check=True,
+    )
 
 
 def remove_starter(name: str) -> None:
