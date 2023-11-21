@@ -46,7 +46,7 @@ After adding a starter, Python Starters may prompt you for some configuration op
 
 Fill in the prompts as required. For example:
 
-```plaintext
+```text
 Project Name [My Awesome Project]:
 Author [Your Name]:
 License [MIT]:
