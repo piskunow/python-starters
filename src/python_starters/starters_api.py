@@ -28,7 +28,7 @@ def add_new_starter(url: str) -> None:
     """Backend logic to add a new starter."""
 
 
-def update_existing_starter(name: str) -> None:
+def update_starter(starter_path: str = "") -> None:
     """Backend logic to update an existing starter."""
 
 

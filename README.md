@@ -115,7 +115,7 @@ Python Starters also provides an API for programmatic access to its functionalit
 - **`add_new_starter(starter_git_url: str)`**:
   Adds a new starter to the project from the given Git URL.
 
-- **`update_existing_starter(starter_name: str)`**:
+- **`update_starter(starter_name: str)`**:
   Updates the specified starter to its latest version.
 
 - **`remove_starter(starter_name: str)`**:
