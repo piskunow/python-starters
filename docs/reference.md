@@ -5,4 +5,6 @@
 ```{eval-rst}
 .. automodule:: python_starters
    :members:
+   :undoc-members:
+   :show-inheritance:
 ```

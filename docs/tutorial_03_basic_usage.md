@@ -1,4 +1,4 @@
-# Basic Usage of Python Starters
+# 🌟 Basic Usage of Python Starters
 
 In this tutorial, we'll cover the basic usage of Python Starters, guiding you through its fundamental commands and operations. Whether you're adding a new starter, updating an existing one, or removing a starter from your project, this guide has you covered.
 
