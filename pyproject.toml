@@ -26,6 +26,7 @@ markdown-it-py = ">=2.2.0"
 pygments = ">=2.15"
 typing-extensions = ">=4.8"
 pre-commit-hooks = ">=4.5"
+mypy-extensions = ">=1.0.0"
 
 [tool.poetry.dev-dependencies]
 Pygments = ">=2.10.0"
