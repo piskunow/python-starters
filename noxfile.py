@@ -1,4 +1,5 @@
 """Nox sessions."""
+
 import os
 import shlex
 import shutil
@@ -7,7 +8,6 @@ from pathlib import Path
 from textwrap import dedent
 
 import nox
-
 
 try:
     from nox_poetry import Session
@@ -23,17 +23,18 @@ except ImportError:
 
 
 package = "python_starters"
-python_versions = ["3.11"]
+python_versions = ["3.11", "3.12", "3.13"]
 nox.needs_version = ">= 2021.6.6"
-nox.options.sessions = (
+nox.options.sessions = [
     "pre-commit",
-    "safety",
+    "audit",
     "mypy",
     "tests",
     "typeguard",
     "xdoctest",
+    "docs-requirements",
     "docs-build",
-)
+]
 
 
 def activate_virtualenv_in_precommit_hooks(session: Session) -> None:
@@ -42,9 +43,6 @@ def activate_virtualenv_in_precommit_hooks(session: Session) -> None:
     This function patches git hooks installed by pre-commit to activate the
     session's virtual environment. This allows pre-commit to locate hooks in
     that environment when invoked from git.
-
-    Args:
-        session: The Session object.
     """
     assert session.bin is not None  # noqa: S101
 
@@ -139,11 +137,16 @@ def precommit(session: Session) -> None:
 
 
 @session(python=python_versions[0])
-def safety(session: Session) -> None:
-    """Scan dependencies for insecure packages."""
+def audit(session: Session) -> None:
+    """Scan dependencies for known vulnerabilities."""
     requirements = session.poetry.export_requirements()
-    session.install("safety")
-    session.run("safety", "check", "--full-report", f"--file={requirements}")
+    session.install("pip-audit")
+    session.run(
+        "pip-audit",
+        f"--requirement={requirements}",
+        "--strict",
+        "--progress-spinner=off",
+    )
 
 
 @session(python=python_versions)
@@ -205,6 +208,27 @@ def xdoctest(session: Session) -> None:
     session.run("python", "-m", "xdoctest", *args)
 
 
+@nox.session(name="docs-requirements", python=python_versions[0])
+def docs_requirements(session: nox.Session) -> None:
+    """Check that docs/requirements.txt resolves on the Read the Docs interpreter.
+
+    Read the Docs is the only consumer of that file; the docs-build session
+    resolves Sphinx from the lock instead. Without this check, a pin needing a
+    newer Python than .readthedocs.yml provides passes every CI job and only
+    fails after merge, on Read the Docs.
+    """
+    session.run(
+        "python",
+        "-m",
+        "pip",
+        "install",
+        "--dry-run",
+        "--ignore-installed",
+        "--requirement",
+        "docs/requirements.txt",
+    )
+
+
 @session(name="docs-build", python=python_versions[0])
 def docs_build(session: Session) -> None:
     """Build the documentation."""
@@ -213,7 +237,12 @@ def docs_build(session: Session) -> None:
         args.insert(0, "--color")
 
     session.install(".")
-    session.install("sphinx", "sphinx-click", "furo", "myst-parser")
+    session.install(
+        "sphinx",
+        "sphinx-click",
+        "furo",
+        "myst-parser",
+    )
 
     build_dir = Path("docs", "_build")
     if build_dir.exists():
@@ -227,7 +256,13 @@ def docs(session: Session) -> None:
     """Build and serve the documentation with live reloading on file changes."""
     args = session.posargs or ["--open-browser", "docs", "docs/_build"]
     session.install(".")
-    session.install("sphinx", "sphinx-autobuild", "sphinx-click", "furo", "myst-parser")
+    session.install(
+        "sphinx",
+        "sphinx-autobuild",
+        "sphinx-click",
+        "furo",
+        "myst-parser",
+    )
 
     build_dir = Path("docs", "_build")
     if build_dir.exists():
