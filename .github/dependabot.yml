@@ -1,21 +1,49 @@
 version: 2
 updates:
+  # Weekly + grouped on purpose: four ecosystems on a daily cadence produced a
+  # constant stream of single-dependency PRs. Security advisories are still
+  # raised immediately regardless of this schedule.
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
-      interval: daily
+      interval: weekly
+    groups:
+      github-actions:
+        patterns: ["*"]
   - package-ecosystem: pip
     directory: "/.github/workflows"
     schedule:
-      interval: daily
+      interval: weekly
+    groups:
+      ci-tooling:
+        patterns: ["*"]
   - package-ecosystem: pip
     directory: "/docs"
     schedule:
-      interval: daily
+      interval: weekly
+    groups:
+      docs:
+        patterns: ["*"]
+    ignore:
+      # Sphinx 9.1+ requires Python >=3.12, but Read the Docs builds these
+      # requirements on the 3.11 in .readthedocs.yml, which tracks this
+      # project's own floor. Dependabot cannot see that constraint (a bare
+      # requirements.txt carries no python_requires), so it proposed 9.1.0 and
+      # broke the Read the Docs install.
+      #
+      # REMOVE THIS when the project floor moves to 3.12 and .readthedocs.yml
+      # follows. The docs-requirements nox session is the backstop: it resolves
+      # this file on the Read the Docs interpreter, so lifting this too early
+      # fails CI rather than only Read the Docs.
+      - dependency-name: "sphinx"
+        versions: [">=9.1"]
   - package-ecosystem: pip
     directory: "/"
     schedule:
-      interval: daily
+      interval: weekly
     versioning-strategy: lockfile-only
     allow:
       - dependency-type: "all"
+    groups:
+      python-dependencies:
+        patterns: ["*"]

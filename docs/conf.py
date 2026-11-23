@@ -1,4 +1,5 @@
 """Sphinx configuration."""
+
 project = "Python Starters"
 author = "Pablo Piskunow"
 copyright = "2023, Pablo Piskunow"

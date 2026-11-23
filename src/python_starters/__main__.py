@@ -1,4 +1,5 @@
 """Command-line interface."""
+
 import click
 
 from .starters_cli import add_starter as _add_starter
