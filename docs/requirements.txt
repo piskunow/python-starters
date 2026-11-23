@@ -1,4 +1,11 @@
-furo==2023.9.10
-sphinx==7.2.6
-sphinx-click==5.0.1
-myst_parser==2.0.0
+# Read the Docs installs from this file. Keep it mirroring poetry.lock so the
+# published docs match what `nox -s docs-build` produces in CI.
+#
+# Pins here must be installable on the interpreter in .readthedocs.yml (3.11).
+# Sphinx 9.1+ requires Python >=3.12, so it cannot be used until this project
+# raises its own floor past 3.11. The `docs-requirements` nox session enforces
+# this, because nothing else in CI installs this file.
+furo==2025.12.19
+sphinx==9.0.4
+sphinx-click==6.2.0
+myst_parser==5.2.0
